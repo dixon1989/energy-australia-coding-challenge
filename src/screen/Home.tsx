@@ -13,8 +13,8 @@ const Home: React.FC = () => {
     load();
   }, []);
 
-  let festivalList = festivalData ? festivalData : undefined
-  parseFestivalsData(festivalList)
+  let festivalList = festivalData ? parseFestivalsData(festivalData) : undefined
+  
   return (
     <></>
   );

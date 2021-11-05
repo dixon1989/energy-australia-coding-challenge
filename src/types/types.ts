@@ -4,6 +4,16 @@ export interface Band {
 }
 
 export interface MusicFestival {
-  name?: string;
+  name: string;
   bands: Band[];
+}
+
+export interface BandFestival {
+  name: string;
+  musicFestivalName?: string;
+}
+
+export interface FestivalBands {
+  name?: string;
+  bands: BandFestival[];
 }
