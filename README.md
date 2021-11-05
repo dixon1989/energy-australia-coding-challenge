@@ -63,4 +63,4 @@ A web service has been setup at the following URL:
 Your team is tasked with listing out music festival data in a particular manner: at the top level, it should show the band record label, below that it should list out all bands under their management, and below that it should display which festivals they've attended, if any. All entries should be sorted alphabetically.
 For example:
 
-![alt text](https://drive.google.com/file/d/1x710bun_EHcjAneBLKy0s-OLpXy6Tltk/view)
+![alt text](https://ibb.co/zWc36gf)
