@@ -1,16 +1,20 @@
 import * as React from "react";
 import { getDataResults } from "../api";
+import { MusicFestival } from "../types";
+import { parseFestivalsData } from "../utils";
 
 const Home: React.FC = () => {
-  const [bandData, setBandData] = React.useState<any>();
+  const [festivalData, setFestivalData] = React.useState<MusicFestival[]>();
   React.useEffect(() => {
     // Should Start grabbing data from webServices API
     const load = async () => {
-        setBandData(await getDataResults());
+      setFestivalData(await getDataResults());
     };
     load();
   }, []);
-  console.log("from home", bandData)
+
+  let festivalList = festivalData ? festivalData : undefined
+  parseFestivalsData(festivalList)
   return (
     <></>
   );
