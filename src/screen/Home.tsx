@@ -14,7 +14,7 @@ const Home: React.FC = () => {
   }, []);
 
   let festivalList = festivalData ? parseFestivalsData(festivalData) : undefined
-  
+  console.log("zzzzzzzzzzzzzz", parseFestivalsData(festivalData))
   return (
     <></>
   );

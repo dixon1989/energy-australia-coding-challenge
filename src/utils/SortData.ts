@@ -1,5 +1,10 @@
 import { MusicFestival, Band, FestivalBands } from "../types";
 
+/* 
+  Requirement: at the top level, it should show the band record label, 
+  below that it should list out all bands under their management, 
+  and below that it should display which festivals they've attended, if any.
+*/
 export const parseFestivalsData = (festivalData: MusicFestival[] = []) => {
   if (festivalData.length === 0) {
     return;
@@ -8,26 +13,39 @@ export const parseFestivalsData = (festivalData: MusicFestival[] = []) => {
   festivalData.forEach((festival: MusicFestival) => {
     const bands: Band[] = festival.bands;
     bands.forEach((band) => {
+      /* 
+        When analysing the data, I found out that there are record label that are empty or not exist. 
+        I am handling them by adding the band into an [ Unknown Label ].
+      */
+      const label = band.recordLabel ? band.recordLabel : "[ Unknown Label ]";
+
+      // -1 === New Record --- If same recordLabel was found or exist in array return the position of the index.
       const filterIndex: number = filteredArray.length
         ? filteredArray.findIndex(
-            (record: any) => record.name === band.recordLabel
+            (record: FestivalBands) => record.name === label
           )
         : -1;
+
+      /* 
+        If record exist locate the previous record and add new band to the existing recordLabel
+        Else create a new index position of record. 
+      */
       filterIndex > -1
         ? filteredArray[filterIndex].bands.push({
             name: band.name,
             musicFestivalName: festival.name,
           })
         : filteredArray.push({
-            name: band.recordLabel,
+            name: label,
             bands: [{ name: band.name, musicFestivalName: festival.name }],
           });
     });
   });
-  sortByName(filteredArray);
+
+  return sortByName(filteredArray);
 };
 
-// Sorting by band name alphabethically
+// Sorting by band name alphabethically. Requirement: All entries should be sorted alphabetically.
 export const sortByName = (list: FestivalBands[]) => {
   return list.sort((a: FestivalBands, b: FestivalBands) =>
     (a.name as string) > (b.name as string) ? 1 : -1
