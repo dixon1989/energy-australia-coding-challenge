@@ -10,7 +10,7 @@ export interface MusicFestival {
 
 export interface BandFestival {
   name: string;
-  musicFestivalName?: string;
+  musicFestivalName?: string[];
 }
 
 export interface FestivalBands {
