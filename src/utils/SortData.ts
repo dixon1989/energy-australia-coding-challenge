@@ -36,6 +36,8 @@ export const parseFestivalsData = (festivalData: MusicFestival[] = []) => {
           If exist, add the new string record into musicFestivalName Array
           Else create a new index position of record with its new musicFestivalName Array. 
         */
+
+        // -1 === New Record --- If same recordLabel was found or exist in array return the position of the index.
         const filterBandIndex: number = filteredFestivalArray[
           filterFestivalIndex
         ].bands.length
@@ -43,6 +45,8 @@ export const parseFestivalsData = (festivalData: MusicFestival[] = []) => {
               (record) => record.name === band.name
             )
           : -1;
+
+        // If band name exist push into existing musicFestivalName else add a new record.
         filterBandIndex > -1
           ? filteredFestivalArray[filterFestivalIndex].bands[
               filterBandIndex
