@@ -1,10 +1,12 @@
 import * as React from "react";
 import { getDataResults } from "../api";
 import { MusicFestival } from "../types";
+
+import Result from "../components/Result";
 import { parseFestivalsData } from "../utils";
 
 const Home: React.FC = () => {
-  const [festivalData, setFestivalData] = React.useState<MusicFestival[]>();
+  const [festivalData, setFestivalData] = React.useState<MusicFestival[] | undefined>();
   React.useEffect(() => {
     // Should Start grabbing data from webServices API
     const load = async () => {
@@ -14,9 +16,9 @@ const Home: React.FC = () => {
   }, []);
 
   let festivalList = festivalData ? parseFestivalsData(festivalData) : undefined
-  console.log("zzzzzzzzzzzzzz", parseFestivalsData(festivalData))
+
   return (
-    <></>
+    <>{festivalData ? <Result results={festivalList} /> : <p>No Results Found</p>}</>
   );
 };
 
