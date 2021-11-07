@@ -28,6 +28,7 @@ This README would normally document whatever steps are necessary to get your app
 - You will need to access to the link below to request a temporary access to a demo server.
 - The only solution that I have found is to run your API together with the demolink server that i have found from the link below.
 - https://github.com/Rob--W/cors-anywhere/issues/301
+  ![alt text](https://i.postimg.cc/g0zg1Xc4/heroku.png)
 
 ### Contribution guidelines
 
