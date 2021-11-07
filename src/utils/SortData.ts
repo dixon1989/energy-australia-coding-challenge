@@ -14,6 +14,7 @@ export const parseFestivalsData = (festivalData: MusicFestival[] = []) => {
     const bands: Band[] = festival.bands;
     bands.forEach((band) => {
       /* 
+        Part 1 -
         When analysing the data, I found out that there are record label that are empty or not exist. 
         I am handling them by adding the band into an [ Unknown Label ].
       */
@@ -27,6 +28,7 @@ export const parseFestivalsData = (festivalData: MusicFestival[] = []) => {
         : -1;
 
       /* 
+        Part 2 -
         If record exist locate the previous record and add new band to the existing recordLabel
         Else create a new index position of record. 
       */
@@ -37,7 +39,7 @@ export const parseFestivalsData = (festivalData: MusicFestival[] = []) => {
           Else create a new index position of record with its new musicFestivalName Array. 
         */
 
-        // -1 === New Record --- If same recordLabel was found or exist in array return the position of the index.
+        // -1 === New Record --- If same band name was found or exist in array return the position of the index.
         const filterBandIndex: number = filteredFestivalArray[
           filterFestivalIndex
         ].bands.length
@@ -46,15 +48,25 @@ export const parseFestivalsData = (festivalData: MusicFestival[] = []) => {
             )
           : -1;
 
-        // If band name exist push into existing musicFestivalName else add a new record.
-        filterBandIndex > -1
-          ? filteredFestivalArray[filterFestivalIndex].bands[
+        /*
+          Part 3 -
+          If band name exist push into existing musicFestivalName else add a new record.
+        */
+        if (filterBandIndex > -1) {
+          // Ensure that music festival name does not contain any duplicates string data. Distinct.
+          // If exists Ignore else push in new music festival name
+          filteredFestivalArray[filterFestivalIndex].bands[
+            filterBandIndex
+          ].musicFestivalName?.indexOf(festival.name) === -1 &&
+            filteredFestivalArray[filterFestivalIndex].bands[
               filterBandIndex
-            ].musicFestivalName?.push(festival.name)
-          : filteredFestivalArray[filterFestivalIndex].bands.push({
-              name: band.name,
-              musicFestivalName: [festival.name],
-            });
+            ].musicFestivalName?.push(festival.name);
+        } else {
+          filteredFestivalArray[filterFestivalIndex].bands.push({
+            name: band.name,
+            musicFestivalName: [festival.name],
+          });
+        }
       } else {
         filteredFestivalArray.push({
           name: label,
@@ -64,6 +76,10 @@ export const parseFestivalsData = (festivalData: MusicFestival[] = []) => {
     });
   });
 
+  /*
+      Part 4 -
+      Finally, sort by recordLable name Alphacetically.
+  */
   return sortByName(filteredFestivalArray);
 };
 
