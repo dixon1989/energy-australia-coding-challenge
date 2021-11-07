@@ -30,6 +30,12 @@ This README would normally document whatever steps are necessary to get your app
 - https://github.com/Rob--W/cors-anywhere/issues/301
   ![alt text](https://i.postimg.cc/g0zg1Xc4/heroku.png)
 
+#### Note:
+
+- If you were to run into "Result Not Found", please try do a "Refresh" on your Browser.
+- DO NOT "REFRESH" your browser too often as it can cause <429 - Too Many Requests response>.
+- A local json file has also been added. In case you are having trouble getting the webservice.
+
 ### Contribution guidelines
 
 - Developing, Commiting code
