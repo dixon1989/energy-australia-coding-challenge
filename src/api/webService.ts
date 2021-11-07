@@ -6,11 +6,12 @@ export const getDataResults = async () => {
   // (You will need to access to that link to request a temporary access to a demo server)
   const serverBypass = "https://cors-anywhere.herokuapp.com/";
   try {
-    const req = await axios.get(`./recordcopy.json`);
-    // const req = await axios.get(
-    //   serverBypass +
-    //     `https://eacp.energyaustralia.com.au/codingtest/api/v1/festivals`
-    // );
+    /* Only use local data for further presentation */
+    // const req = await axios.get(`./recordcopy.json`);
+    const req = await axios.get(
+      serverBypass +
+        `https://eacp.energyaustralia.com.au/codingtest/api/v1/festivals`
+    );
     if (req.status === 200) {
       let data = req.data;
       return data;

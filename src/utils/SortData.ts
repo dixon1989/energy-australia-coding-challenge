@@ -5,7 +5,7 @@ import { MusicFestival, Band, FestivalBands } from "../types";
   below that it should list out all bands under their management, 
   and below that it should display which festivals they've attended, if any.
 */
-export const parseFestivalsData = (festivalData: MusicFestival[] = []) => {
+export const getFestivalsData = (festivalData: MusicFestival[] = []) => {
   if (festivalData.length === 0) {
     return;
   }

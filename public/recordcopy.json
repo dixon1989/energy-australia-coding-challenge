@@ -1,6 +1,6 @@
 [
   {
-    "name": "ZZzz",
+    "name": "Testing Data",
     "bands": [
       {
         "name": "Winter Primates",
@@ -68,6 +68,14 @@
       {
         "name": "Winter Primates",
         "recordLabel": ""
+      },
+      {
+        "name": "Wild Antelope",
+        "recordLabel": "Still Bottom Records"
+      },
+      {
+        "name": "Wild Antelope",
+        "recordLabel": "Still Bottom Records"
       },
       {
         "name": "Wild Antelope",

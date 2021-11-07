@@ -3,7 +3,7 @@ import { getDataResults } from "../api";
 import { MusicFestival } from "../types";
 
 import Result from "../components/Result";
-import { parseFestivalsData } from "../utils";
+import { getFestivalsData } from "../utils";
 
 const Home: React.FC = () => {
   const [festivalData, setFestivalData] = React.useState<MusicFestival[] | undefined>();
@@ -15,7 +15,7 @@ const Home: React.FC = () => {
     load();
   }, []);
 
-  let festivalList = festivalData ? parseFestivalsData(festivalData) : undefined
+  let festivalList = festivalData ? getFestivalsData(festivalData) : undefined
 
   return (
     <>{festivalData ? <Result results={festivalList} /> : <p>No Results Found</p>}</>
